@@ -8,11 +8,38 @@ namespace Exercises_Inheritance
         {
             do
             {
-                Console.WriteLine("Exercises: Inhetithae\n");
+                Console.WriteLine("Exercise: Inheritance\n");
                 //P1_Person();
                 //P2_Book();
-                P3_Mankind();
+                //P3_Mankind();
+                P4_RadioDB();
+
             } while (true);
+        }
+
+        private static void P4_RadioDB()
+        {
+            var rdb = new RadioDB();
+
+            Console.Write("Enter the no of songs to input: ");
+            int noOfSongs = int.Parse(Console.ReadLine());
+            for (int i = 0; i < noOfSongs; i++)
+            {
+                try
+                {
+                    Console.Write($"Enter the songs (#{i+1} in format: <artist name>;<song name>;<Minuter:second> ");
+                    string songInfo = Console.ReadLine();
+                    rdb.AddSong(songInfo);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    i--;
+                }
+
+            }
+            rdb.SongsAdded();
+            rdb.PlayListLength();
         }
 
         private static void P3_Mankind()
